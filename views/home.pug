@@ -6,33 +6,13 @@ head
   title Assignment - 2
 
 include ./partials/header.pug
-.container.mt-5
-  .row
-    .col-sm-4
-      h2 About US
-      h5 Photo :
-      .fakeimg Fake Image
-      p Some text about me in culpa qui officia deserunt mollit anim..
-      h3.mt-4 Some Links
-      p Lorem ipsum dolor sit ame.
-      ul.nav.nav-pills.flex-column
-        li.nav-item
-          a.nav-link.active(href='/details') Show All Contact
-        li.nav-item
-      hr.d-sm-none
-    .col-sm-8
-      h2 TITLE HEADING
-      h5 Title description, Dec 7, 2020
-      .fakeimg Fake Image
-      p Some text..
-      p
-        | Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.
-      h2.mt-5 TITLE HEADING
-      h5 Title description, Sep 2, 2020
-      .fakeimg Fake Image
-      p Some text..
-      p
-        | Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.
+
+section.position-relative
+  div
+    img(src='https://ik.imagekit.io/ikmedia/backlit.jpg' width='100%' height='422px' alt='BannerImg')
+  div.position-absolute.top-50.start-50.translate-middle.text-center
+    h2.text-white Welcome to Home Page
+    a.text-black.btn.btn-primary(href='/contact') Request Callback
 
 
 include ./partials/footer.pug
