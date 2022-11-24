@@ -1,11 +1,16 @@
-//- head
-//- link(rel='stylesheet', href='/style.css')
-//- link(rel='stylesheet', href='/css/bootstrap.min.css')
-header 
- nav(class="d-flex flex-column gx-4") 
-  a(class='button' href='/home') Home 
-  a(class='button' href='/about') About Us
-  a(class='button' href='/gallery') Gallery
-  a(class='button' href='/services') Services
-  a(class='button' href='/contact') Contact
-  a(class='button' href='/contactDetails') Contact Details
+nav.navbar.navbar-expand-lg.navbar-light.shadow.p-3.mb-5.bg-secondary.rounded
+  .container-fluid
+    a.navbar-brand(href='/') Assignment-02
+    #navbarNav.collapse.navbar-collapse.d-flex.justify-content-end
+      ul.navbar-nav
+        li.nav-item
+          a.nav-link(aria-current='page' href='/') Home
+        li.nav-item
+          a.nav-link.thumbs(href='/about') About Us
+        li.nav-item
+          a.nav-link(href='/gallery') Gallery
+        li.nav-item
+          a.nav-link(href='/services') Services
+        li.nav-item
+          a.nav-link(href='/contact') Contact
+        

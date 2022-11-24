@@ -1,12 +1,39 @@
-doctype html 
-html 
+doctype html
 head
-title Home Page
-link(rel='stylesheet', href='/style.css')
-link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'
-integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u' crossorigin='anonymous')
-link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css')
+  meta(charset='utf-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1')
+  link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC' crossorigin='anonymous')
+  title Assignment - 2
 
-body 
- include ./partials/header.pug
- include ./partials/footer.pug
+include ./partials/header.pug
+.container.mt-5
+  .row
+    .col-sm-4
+      h2 About US
+      h5 Photo :
+      .fakeimg Fake Image
+      p Some text about me in culpa qui officia deserunt mollit anim..
+      h3.mt-4 Some Links
+      p Lorem ipsum dolor sit ame.
+      ul.nav.nav-pills.flex-column
+        li.nav-item
+          a.nav-link.active(href='/details') Show All Contact
+        li.nav-item
+      hr.d-sm-none
+    .col-sm-8
+      h2 TITLE HEADING
+      h5 Title description, Dec 7, 2020
+      .fakeimg Fake Image
+      p Some text..
+      p
+        | Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.
+      h2.mt-5 TITLE HEADING
+      h5 Title description, Sep 2, 2020
+      .fakeimg Fake Image
+      p Some text..
+      p
+        | Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.
+
+
+include ./partials/footer.pug
+
