@@ -9,13 +9,17 @@ app.use(express.static(__dirname + "/public"));
 
 app.set("view engine", "pug");
 app.set("views", "./views");
-
+// Default Route
 app.get("/", (req, res) => {
   res.render("home");
 });
+
+// Contact Form Route
 app.get("/contact", (req, res) => {
   res.render("contactForm");
 });
+
+// File is created and appended in Contactdata folder
 app.post("/submitdata", (req, res) => {
   let firstname = req.body.firstname;
   let lastname = req.body.lastname;
@@ -23,27 +27,23 @@ app.post("/submitdata", (req, res) => {
   let mobilenumber = req.body.mobnumber;
 
   let data = `
-  <tr>
-      <td>${firstname}</td>
-      <td>${lastname}</td>
-      <td>${email}</td>
-      <td>${mobilenumber}</td>
-  </tr>
+tr
+  td ${firstname}
+  td ${lastname}
+  td ${email}
+  td ${mobilenumber}
   `;
 
-  if (fs.existsSync("./contactdata/details.txt")) {
-    fs.appendFileSync("./contactdata/details.txt", data.toString(), "utf8");
+  if (fs.existsSync("./contactdata/details.pug")) {
+    fs.appendFileSync("./contactdata/details.pug", data.toString(), "utf8");
   } else {
-    fs.writeFileSync("./contactdata/details.txt", data.toString(), "utf8");
+    fs.writeFileSync("./contactdata/details.pug", data.toString(), "utf8");
   }
 
   res.render("contactDetails");
 });
 
-app.get("/data", (req, res) => {
-  let data = fs.readFileSync("./contactdata/details.txt");
-  res.render("contactDetails", { data: data.toString() });
-});
+//Basic files rendered on their specific routes
 app.get("/services", (req, res) => {
   res.render("services");
 });
