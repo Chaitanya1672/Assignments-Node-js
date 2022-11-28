@@ -10,10 +10,10 @@
       {{#if errMsg}}<div class="alter alert-danger text-center">{{errMsg}}</div>
       {{else}}<div class="alter alert-success text-center">{{succsMsg}}</div>
       {{/if}}
-      <div id="error"></div>
+      <div id="error" ></div
 
     </div>
-    <form  action="/postdata" method="POST" class="pt-2 w-75 m-auto ">
+    <form  action="/postdata" method="POST" id="regisForm" class="pt-2 w-75 m-auto ">
       <div class="form-group">
         <input
           type="text"
@@ -76,6 +76,54 @@
       </div>
       <button type="submit" class="btn btn-success rounded-pill mt-2">Submit</button>
     </form>
+
+    <script>
+      const fname = document.getElementById("fname");
+      const lname = document.getElementById("lname");
+      const email = document.getElementById("email");
+      const password = document.getElementById("password");
+      const age = document.getElementById("age");
+      const msgBx = document.getElementById("msgBx");
+
+      const errorDiv = document.getElementById("error");
+      const form = document.getElementById("regisForm");
+
+    form.addEventListener('submit', (e) => {
+      let messages = []
+      if (fname.value === '' || fname.value == null) {
+        messages.push('First Name is required')
+      }
+      if (lname.value === '' || lname.value == null) {
+        messages.push('Last Name is required')
+      }
+      if(email.value === "" || email.value === null){
+      messages.push('Email is required')
+      }
+      if (password.value.length <= 6) {
+        messages.push('Password must be longer than 6 characters')
+      }
+
+      if (password.value.length >= 20) {
+        messages.push('Password must be less than 20 characters')
+      }
+
+      if (password.value === 'password') {
+        messages.push('Password cannot be password')
+      }
+      if(msgBx.value === "" || msgBx.value === null){
+      messages.push('Dont forget to give us meassage')
+      }
+
+      if (messages.length > 0) {
+        e.preventDefault()
+        errorDiv.innerText = messages.join(',\n ')
+        errorDiv.classList = 'alert alert-danger'
+        
+      }
+    })
+
+    </script>
+    {{!-- <script src="validation.js"></script> --}}
   </div>
 </div>
 
