@@ -1,0 +1,40 @@
+{{!-- Login Page for registered user --}}
+{{> header}}
+
+<div class="text-center center-div mt-4 mb-5" id="login">
+  <div class="container w-50 border py-5">
+    <div class="title pb-5">
+      <h2 class="font-weight-bold">Login System</h2>
+
+      {{#if errMsg}}<div class="alter alert-danger text-center">
+        {{errMsg}}
+      </div>
+      {{else}}<div class="alter alert-success text-center">{{succsMsg}}</div>
+      {{/if}}
+
+    </div>
+    <form action="/dashboard" method="post" class="pt-2 w-75 m-auto ">
+      <div class="form-group">
+        <input
+          type="email"
+          class="form-control"
+          placeholder="Email"
+          name="email"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <input
+          type="password"
+          class="form-control"
+          name="password"
+          placeholder="Password"
+          required 
+        />
+      </div>
+      <button type="submit" class="btn btn-success rounded-pill mt-2">Submit</button>
+    </form>
+  </div>
+</div>
+
+{{> footer}}
