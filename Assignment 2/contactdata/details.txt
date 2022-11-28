@@ -1,0 +1,58 @@
+
+//This Is text file for all the Details
+  <tr>
+      <td>Chaitanya</td>
+      <td>NArhare</td>
+      <td>test@test.com</td>
+      <td>12345678</td>
+  </tr>
+  
+  <tr>
+      <td>Narahre</td>
+      <td>Chaitanya</td>
+      <td>cnarhare.21@gmail.com</td>
+      <td>12332443545</td>
+  </tr>
+  
+  <tr>
+      <td>Chaitanya</td>
+      <td>NArhare</td>
+      <td>cnarhare.21@gmail.com</td>
+      <td>121343244</td>
+  </tr>
+  
+  <tr>
+      <td>Chaitanya </td>
+      <td>Narhare</td>
+      <td>Cnn@gmail.com</td>
+      <td>98728187398</td>
+  </tr>
+  
+  <tr>
+      <td>Chaitanya </td>
+      <td>Narhare</td>
+      <td>Cnn@gmail.com</td>
+      <td>98728187398</td>
+  </tr>
+  
+  <tr>
+      <td>Chaitanya</td>
+      <td>Narhare</td>
+      <td>cnn@cnn.com</td>
+      <td>8349832423</td>
+  </tr>
+  
+  <tr>
+      <td>Chaitanya</td>
+      <td>Narhare</td>
+      <td>cnn@cnn.com</td>
+      <td>8349832423</td>
+  </tr>
+  
+  <tr>
+      <td>Chaitanya</td>
+      <td>Narhare</td>
+      <td>cnn@cnn.com</td>
+      <td>8349832423</td>
+  </tr>
+  
