@@ -77,6 +77,7 @@
       <button type="submit" class="btn btn-success rounded-pill mt-2">Submit</button>
     </form>
 
+{{!-- Script tag for form Validation in registration   --}}
     <script>
       const fname = document.getElementById("fname");
       const lname = document.getElementById("lname");
@@ -99,7 +100,7 @@
       if(email.value === "" || email.value === null){
       messages.push('Email is required')
       }
-      if (password.value.length <= 6) {
+      if (password.value.length < 6) {
         messages.push('Password must be longer than 6 characters')
       }
 
