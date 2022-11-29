@@ -1,0 +1,33 @@
+<%- include('./partials/header') %>
+
+  <!-- Page for editting/updating the product  -->
+  <div class="text-center center-div mt-1 mb-1" id="login">
+    <div class="container w-50 border py-5">
+      <div class="title pb-5">
+        <h2 class="font-weight-bold">Update the details</h2>
+      </div>
+      <form action="/editproduct/<%=data._id%>" method="POST" id="regisForm" class="pt-2 w-75 m-auto ">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Name" name="name" id="name" value=<%-data.name %>
+          required />
+        </div>
+        <div class="form-group">
+          <input type="number" class="form-control" placeholder="price" name="price" id="price" value=<%-data.price %>
+          required />
+        </div>
+        <div class="form-group">
+          <input type="number" class="form-control" placeholder="quantity" name="quantity" id="quantity"
+            value=<%-data.quantity %> required />
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" name="description" id="description" placeholder="description"
+            value=<%-data.description %> required />
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" name="imgUrl" id="imgUrl" placeholder="Image Url"
+            value=<%-data.imgUrl%> />
+        </div>
+        <button type="submit" class="btn btn-success rounded-pill mt-2">Submit</button>
+      </form>
+
+      <%- include('./partials/footer') %>
