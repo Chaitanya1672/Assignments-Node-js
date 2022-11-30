@@ -1,6 +1,6 @@
 <%- include('./partials/header') %>
 
-  <!-- page for reading all the products and mapping them -->
+  <!-- card page for reading all the products and mapping them -->
   <div class="d-flex flex-wrap ">
     <% productData.forEach(function(data) { %>
       <div class="card mr-5" style="width: 18rem;">
@@ -20,6 +20,7 @@
             <form action="/deleteproduct/<%=data._id%>" method="post">
               <button type="submit" class="btn btn-danger">delete</button>
             </form>
+            <!-- <a href="/deleteproduct/<%=data._id%>" type="submit"> delete</a> -->
             <form action="/updateForm/<%=data._id%>" method="post">
               <a href="/updateForm/<%=data._id%>" type="submit" class="btn btn-primary">update</a>
             </form>

@@ -3,7 +3,6 @@ const productModel = require("../model/product");
 //controller for adding/create the product
 function SaveProduct(req, res) {
   const bodyData = req.body;
-  console.log(bodyData);
   let ins = new productModel(bodyData);
   ins.save((err) => {
     if (err) res.send("Something went wrong or Already exists");
