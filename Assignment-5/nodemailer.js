@@ -2,6 +2,8 @@ const nodemailer = require("nodemailer");
 var hbs = require("nodemailer-express-handlebars");
 
 //attach the plugin to the nodemailer transporter
+
+//This nodemailer is for activate account functionality
 const mailSender = (data) => {
   let { email, _id, username } = data;
   let transporter = nodemailer.createTransport({
@@ -39,6 +41,7 @@ const mailSender = (data) => {
   });
 };
 
+//This nodemailer is for reset password functionality
 const resetMailSender = (newToken, restToken, email) => {
   let { userId, username } = newToken;
   let transporter = nodemailer.createTransport({
@@ -80,4 +83,3 @@ const resetMailSender = (newToken, restToken, email) => {
 };
 
 module.exports = { mailSender, resetMailSender };
-// module.exports = mailSender;

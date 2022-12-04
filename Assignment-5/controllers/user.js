@@ -1,9 +1,10 @@
 const userModel = require("../model/userModel");
 const tokenModel = require("../model/tokenModel");
 
+//variable for session usage
 var session;
 
-//This is the variable for sending mail whose functionality in nodemailer.js
+//This are nodemailer for account activation and reseting password
 const { mailSender, resetMailSender } = require("../nodemailer");
 
 //This is used for file uploading
@@ -42,10 +43,12 @@ const upload = multer({
     }
   },
 });
-//end upload functionality
 
+const uploadSingle = upload.single("att");
+//End of upload functionality
+
+// Home Route
 function defaultRoute(req, res) {
-  console.log(req.session);
   session = req.session;
   if (session.username) {
     res.redirect("/dashboard");
@@ -53,6 +56,8 @@ function defaultRoute(req, res) {
     return res.render("login", { csrf: req.csrfToken() });
   }
 }
+
+//Login page Route
 function login(req, res) {
   let auth = req.query.msg ? true : false;
   if (auth) {
@@ -61,6 +66,8 @@ function login(req, res) {
     return res.render("login", { csrf: req.csrfToken });
   }
 }
+
+// After Login authentication route
 async function postlogin(req, res) {
   let { username, password } = req.body;
   try {
@@ -80,6 +87,8 @@ async function postlogin(req, res) {
     return res.redirect("/login?msg=fail");
   }
 }
+
+//Route for Dashboard/Welcome page
 async function dashboard(req, res) {
   let username = req.session.username;
   try {
@@ -101,11 +110,13 @@ async function dashboard(req, res) {
     res.send("something went wrong in dashboard func");
   }
 }
+
+//Registration page route
 function regis(req, res) {
   res.render("regis", { csrf: req.csrfToken() });
 }
 
-const uploadSingle = upload.single("att");
+//Post registration route for uploading & sending mail
 async function postregis(req, res) {
   uploadSingle(req, res, async (err) => {
     try {
@@ -130,6 +141,8 @@ async function postregis(req, res) {
     }
   });
 }
+
+//Route for activating account after mail sent to user
 async function activateaccount(req, res) {
   let id = req.params.id;
   try {
@@ -145,14 +158,20 @@ async function activateaccount(req, res) {
     res.send("Some Thing Went Wrong1");
   }
 }
+
+// Route forlogging out user and cleaning the session storage
 function logout(req, res) {
   req.session.destroy();
   return res.redirect("/login");
 }
+
+//Route for resetaccount page
 function resetaccount(req, res) {
   res.render("resetaccount", { csrf: req.csrfToken() });
 }
-async function postaccountreset(req, res) {
+
+//Route for creating token and sending mail for reseting pass
+async function postresetaccount(req, res) {
   let email = req.body.email;
   try {
     let user = await userModel.findOne({ email: email });
@@ -178,14 +197,16 @@ async function postaccountreset(req, res) {
   }
 }
 
+// Route for reset password page, where id & token extracted through req.query
 function resetpassword(req, res) {
-  console.log(req.query.id);
   res.render("resetpassword", {
     csrf: req.csrfToken(),
     id: req.query.id,
     token: req.query.token,
   });
 }
+
+//Route for changing Password & completing the reset password functionality
 async function postresetpassword(req, res) {
   let { id, token, password } = req.body;
   console.log(req.body);
@@ -224,7 +245,7 @@ module.exports = {
   activateaccount,
   logout,
   resetaccount,
-  postaccountreset,
+  postresetaccount,
   resetpassword,
   postresetpassword,
 };

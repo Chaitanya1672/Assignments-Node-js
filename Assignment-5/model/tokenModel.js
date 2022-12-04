@@ -1,3 +1,4 @@
+//This is token model schema
 const mongoose = require("mongoose");
 
 const tokenSchema = new mongoose.Schema({

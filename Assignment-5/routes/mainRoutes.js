@@ -12,7 +12,7 @@ const {
   activateaccount,
   logout,
   resetaccount,
-  postaccountreset,
+  postresetaccount,
   resetpassword,
   postresetpassword,
 } = require("../controllers/user");
@@ -34,7 +34,7 @@ router.get("/activateaccount/:id", activateaccount);
 router.get("/logout", logout);
 router.get("/resetaccount", resetaccount);
 
-router.post("/postaccountreset", postaccountreset);
+router.post("/postaccountreset", postresetaccount);
 router.get("/resetpassword", resetpassword);
 router.post("/postresetpassword", postresetpassword);
 

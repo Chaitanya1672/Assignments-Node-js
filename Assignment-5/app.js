@@ -14,6 +14,7 @@ const seceret = "assd123^&*^&*ghghggh";
 const oneDay = 1000 * 60 * 60 * 24;
 const sessions = require("express-session");
 
+//This is middleware for session
 app.use(
   sessions({
     secret: seceret,
@@ -22,7 +23,6 @@ app.use(
     resave: false,
   })
 );
-
 const csrfMiddleware = csurf({
   cookie: true,
 });
@@ -53,6 +53,7 @@ mongoose
 //User routes for all operatins
 app.use("/", mainRoutes);
 
+//404 error route
 app.get("*", (req, res) => {
   res.render("notFound");
 });
