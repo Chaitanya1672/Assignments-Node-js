@@ -19,13 +19,7 @@ const crypto = require("crypto");
 //This for File uploading functionality
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(
-      null,
-      path.join(
-        "D:/Node Js Practice/Training nodeJs/Assignments/Assignment-5",
-        "/uploads"
-      )
-    );
+    cb(null, path.join(__dirname, "../", "/uploads"));
   },
   filename: function (req, file, cb) {
     fileExtension = path.extname(file.originalname);
@@ -95,7 +89,6 @@ async function dashboard(req, res) {
     if (username) {
       const user = await userModel.findOne({ username: username });
       if (user) {
-        console.log(user);
         return res.render("dashboard", {
           uname: user.username,
           path: user.image,
