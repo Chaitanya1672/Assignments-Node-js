@@ -1,6 +1,5 @@
 const userModel = require("../model/userModel");
 const tokenModel = require("../model/tokenModel");
-
 //variable for session usage
 var session;
 
@@ -33,7 +32,7 @@ const upload = multer({
       cb(null, true);
     } else {
       cb(null, false);
-      cb(new Error("Only png and jpg formet allowed"));
+      cb(new Error("Only png and jpg/jpeg format are allowed"));
     }
   },
 });
@@ -126,7 +125,7 @@ async function postregis(req, res) {
         });
         mailSender(user);
         res.render("regis", {
-          succsMsg: `Registration Successful. Email has been sent to ${user.email}`,
+          succsMsg: `Registration Successful. \nEmail has been sent to ${user.email}`,
         });
       }
     } catch (err) {

@@ -48,15 +48,21 @@ function deleteProduct(req, res) {
 }
 
 //controller for updating/editting the product
-function updateWithId(req, res) {
+async function updateWithId(req, res) {
   let pid = req.params.id;
-  productModel.findById(pid, (err, data) => {
-    if (err) {
-      res.send("Something went wrong");
-    } else {
-      res.render("updateProduct", { _id: pid, data: data.toJSON() });
-    }
-  });
+  let prodData = await productModel.findById(pid);
+  if (prodData) {
+    res.render("updateProduct", { _id: pid, data: prodData });
+  } else {
+    res.send("Something went wrong");
+  }
+  // productModel.findById(pid, (err, data) => {
+  //   if (err) {
+  //     res.send("Something went wrong");
+  //   } else {
+  //     res.render("updateProduct", { _id: pid, data: data });
+  //   }
+  // });
 }
 
 function updateProduct(req, res) {

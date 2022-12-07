@@ -30,5 +30,5 @@ app.use("*", (req, res) => {
 
 app.listen(PORT, (err) => {
   if (err) throw err;
-  else console.log(`work on ${PORT} ${mongoUrl}`);
+  else console.log(`work on ${PORT}`);
 });
